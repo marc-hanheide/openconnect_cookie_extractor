@@ -2,9 +2,9 @@
    "browser_action": {
       "default_icon": "icons/128.png",
       "default_popup": "scripts/popup.html",
-      "default_title": "show cookies"
+      "default_title": "show the Openconnect cookie/cmd line"
    },
-   "description": "show cookies with json style",
+   "description": "easily extract and display the VPN cookie to use with openconnect and Cisco AnyConnect Servers.",
    "icons": {
       "128": "icons/128.png",
       "26": "icons/26.png",
@@ -12,10 +12,10 @@
       "48": "icons/48.png"
    },
    "manifest_version": 2,
-   "name": "cookies.json",
-   "offline_enabled": true,
-   "permissions": [ "activeTab", "cookies", "tabs", "webNavigation", "http://*/*", "https://*/*" ],
-   "short_name": "cookies",
+   "name": "OpenAnyconnect Cookie Tray",
+   "offline_enabled": false,
+   "permissions": [ "activeTab", "cookies", "tabs", "webNavigation", "https://*/*" ],
+   "short_name": "cookietray",
    "version": "0.1",
    "background": {
       "page":"scripts/background.html"
