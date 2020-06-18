@@ -1,2 +1,27 @@
-<script src="domain_list.js"></script>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Openconnect Wizard</title>
+</head>
+<body>
+<div class="container-fluid" style="min-width:400px;">
+    <div class="row"><div class="col">
+
+        <div id="available" style="display: none;">
+            <h3>openconnect command string</h3>
+            <div class="form-group">
+                <label for="cmd_line">command line (Linux); click to copy and paste into terminal:</label>
+                <textarea id="cmd_line" readonly style="font-family: monospace; min-width: 100%; min-height: 100px;" class="form-control js-copytextarea js-textareacopybtn"></textarea>
+            </div>
+        </div>
+        <div id="unavailable">
+        <div id="available">
+            <div class="alert alert-warning" role="alert">
+                Sorry, couldn't find the VPN cookie on this page.
+            </div>        
+        </div>
+    </div></div>
+</div>
 <script src="popup.js"></script>
+</body>
+</html>

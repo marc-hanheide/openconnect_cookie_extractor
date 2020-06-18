@@ -16,46 +16,69 @@ function getDomain(e) {
   return domain
 }
 
-
+function url_domain(data) {
+  var    a      = document.createElement('a');
+         a.href = data;
+  return a.hostname;
+}
 
 var content = "",
   downloadable = "",
   popup = "",
   jsons = [];
 
-
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+var copyTextarea = document.querySelector('.js-copytextarea');
+var div_available = document.querySelector('#available');
+var div_unavailable = document.querySelector('#unavailable');
+  
 chrome.tabs.getSelected(null, function(e) {
 
-  //下面就是修改自cookies.txt插件的版本
-
-  domain = getDomain(e.url);
+  //domain = getDomain(e.url);
+  domain = url_domain(e.url);
   chrome.cookies.getAll({}, function(o) {
 
     for (var t in o) {
       cookie = o[t];
 
       if (-1 != cookie.domain.indexOf(domain)) {
-        //变成json的地方，可以在这里添加更多关于json的属性
-        jsons.push({
-          name : escapeForPre(cookie.name),
-          value: escapeForPre(cookie.value),
-          domain: escapeForPre(cookie.domain),
-          path : escapeForPre(cookie.path),
-          expires : escapeForPre(cookie.expirationDate ? cookie.expirationDate : "0")
-
-        });
-
+        if (cookie.name == 'webvpn') {
+          content += 
+            "sudo openconnect --cookie="
+            + escapeForPre(cookie.value) 
+            + " " 
+            + escapeForPre(cookie.domain);
+            div_unavailable.style.display = "none";
+            div_available.style.display = "block";
+          break;
+        }
       };
     }
-
+    copyTextarea.cols = content.length;
+    copyTextarea.value = content;
     //变成可以看的json string
-    content += JSON.stringify(jsons, null, 2);
+    //content += JSON.stringify(jsons, null, 2);
 
     //下载链接
-    var downloadLinkContent = "data:application/octet-stream;base64," + btoa(content);
-    var downloadLink = "<a href=" + downloadLinkContent + ' download="cookies.json">download as json file</a>';
+    //var downloadLinkContent = "data:application/octet-stream;base64," + btoa(content);
+    //var downloadLink = "<a href=" + downloadLinkContent + ' download="cookies.json">download as json file</a>';
 
-    document.write('<pre>\n'+ downloadLink +'\n\n'+content+'</pre>');
+    //document.write(content);
     
   });
+});
+
+
+
+copyTextarea.addEventListener('click', function(event) {
+  copyTextarea.focus();
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
 });
