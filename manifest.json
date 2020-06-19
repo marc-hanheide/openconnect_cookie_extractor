@@ -12,9 +12,9 @@
       "48": "icons/48.png"
    },
    "manifest_version": 2,
-   "name": "OpenAnyconnect Cookie Tray",
+   "name": "OpenAnyconnect Cookie Tray (Uni Lincoln)",
    "offline_enabled": false,
-   "permissions": [ "activeTab", "cookies", "https://*/*" ],
+   "permissions": [ "activeTab", "cookies", "https://remote.lincoln.ac.uk/*" ],
    "short_name": "cookietray",
    "version": "0.0.1"
 }
