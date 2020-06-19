@@ -7,7 +7,9 @@ This simple extension is designed to work the University of Lincoln's AnyConnect
 
 Simple! 
 
-1. Install the extension
+1. Install the extension 
+    * in webstore soon (hopefully)
+    * for now download `.crx` file from [releases](https://github.com/marc-hanheide/openconnect_cookie_extractor/releases), enable developer mode in chrome://extensions/ and drag the downloaded `.crx` file into the window to install. If that fails, use [setup for development](#setupfordevelopment) for now.
 1. navigate to https://remote.lincoln.ac.uk 
 1. log in (with MFA if needed)
 1. click on the extension icon to display the command line for open connect with the secret auth cookies put already in place
