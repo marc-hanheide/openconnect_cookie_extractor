@@ -14,10 +14,7 @@
    "manifest_version": 2,
    "name": "OpenAnyconnect Cookie Tray",
    "offline_enabled": false,
-   "permissions": [ "activeTab", "cookies", "tabs", "webNavigation", "https://*/*" ],
+   "permissions": [ "activeTab", "cookies", "https://*/*" ],
    "short_name": "cookietray",
-   "version": "0.1",
-   "background": {
-      "page":"scripts/background.html"
-   }
+   "version": "0.0.1"
 }

@@ -31,13 +31,11 @@ var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
 var copyTextarea = document.querySelector('.js-copytextarea');
 var div_available = document.querySelector('#available');
 var div_unavailable = document.querySelector('#unavailable');
-  
-chrome.tabs.getSelected(null, function(e) {
+var div_message = document.querySelector('#message');
 
-  //domain = getDomain(e.url);
+chrome.tabs.getSelected(null, function(e) {
   domain = url_domain(e.url);
   chrome.cookies.getAll({}, function(o) {
-
     for (var t in o) {
       cookie = o[t];
 
