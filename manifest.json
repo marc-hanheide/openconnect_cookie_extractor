@@ -16,7 +16,7 @@
    "offline_enabled": false,
    "permissions": ["declarativeContent", "activeTab", "cookies", "https://remote.lincoln.ac.uk/*" ],
    "short_name": "cookietray",
-   "version": "0.0.1",
+   "version": "0.0.2",
    "background": {
       "scripts": ["scripts/background.js"],
       "persistent": false
