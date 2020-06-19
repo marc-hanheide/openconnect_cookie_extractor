@@ -33,40 +33,6 @@ var div_available = document.querySelector('#available');
 var div_unavailable = document.querySelector('#unavailable');
 var div_message = document.querySelector('#message');
 
-chrome.tabs.getSelected(null, function(e) {
-  domain = url_domain(e.url);
-  chrome.cookies.getAll({}, function(o) {
-    for (var t in o) {
-      cookie = o[t];
-
-      if (-1 != cookie.domain.indexOf(domain)) {
-        if (cookie.name == 'webvpn') {
-          content += 
-            "sudo openconnect --cookie="
-            + escapeForPre(cookie.value) 
-            + " " 
-            + escapeForPre(cookie.domain);
-            div_unavailable.style.display = "none";
-            div_available.style.display = "block";
-          break;
-        }
-      };
-    }
-    copyTextarea.cols = content.length;
-    copyTextarea.value = content;
-    //变成可以看的json string
-    //content += JSON.stringify(jsons, null, 2);
-
-    //下载链接
-    //var downloadLinkContent = "data:application/octet-stream;base64," + btoa(content);
-    //var downloadLink = "<a href=" + downloadLinkContent + ' download="cookies.json">download as json file</a>';
-
-    //document.write(content);
-    
-  });
-});
-
-
 
 copyTextarea.addEventListener('click', function(event) {
   copyTextarea.focus();
@@ -80,3 +46,25 @@ copyTextarea.addEventListener('click', function(event) {
     console.log('Oops, unable to copy');
   }
 });
+
+chrome.tabs.getSelected(null, function(e) {
+  domain = url_domain(e.url);
+  chrome.cookies.get({
+    url: e.url,
+    name: 'webvpn'
+  }, function(cookie) {
+    console.log(cookie);
+    content += 
+      "sudo openconnect --cookie="
+      + escapeForPre(cookie.value) 
+      + " " 
+      + escapeForPre(cookie.domain);
+      div_unavailable.style.display = "none";
+      div_available.style.display = "block";
+  
+    copyTextarea.cols = content.length;
+    copyTextarea.value = content;
+  });
+});
+
+

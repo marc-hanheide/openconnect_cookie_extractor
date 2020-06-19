@@ -1,5 +1,5 @@
 {
-   "browser_action": {
+   "page_action": {
       "default_icon": "icons/128.png",
       "default_popup": "scripts/popup.html",
       "default_title": "show the Openconnect cookie/cmd line"
@@ -14,7 +14,11 @@
    "manifest_version": 2,
    "name": "OpenAnyconnect Cookie Tray (Uni Lincoln)",
    "offline_enabled": false,
-   "permissions": [ "activeTab", "cookies", "https://remote.lincoln.ac.uk/*" ],
+   "permissions": ["declarativeContent", "activeTab", "cookies", "https://remote.lincoln.ac.uk/*" ],
    "short_name": "cookietray",
-   "version": "0.0.1"
+   "version": "0.0.1",
+   "background": {
+      "scripts": ["scripts/background.js"],
+      "persistent": false
+    }  
 }
