@@ -29,6 +29,7 @@ var content = "",
 
 var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
 var copyTextarea = document.querySelector('.js-copytextarea');
+var terminalBtn = document.querySelector('#terminal-btn');
 var div_available = document.querySelector('#available');
 var div_unavailable = document.querySelector('#unavailable');
 var div_message = document.querySelector('#message');
@@ -64,6 +65,8 @@ chrome.tabs.getSelected(null, function(e) {
   
     copyTextarea.cols = content.length;
     copyTextarea.value = content;
+    terminalBtn.href = "openconnectcookieextractor://--cookie=" + escapeForPre(cookie.value) + "#"
+        + escapeForPre(cookie.domain);
   });
 });
 

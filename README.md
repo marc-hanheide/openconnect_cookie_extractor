@@ -20,6 +20,7 @@ Simple!
 * ```git clone https://github.com/marc-hanheide/openconnect_cookie_extractor.git```
 * open your chrome and open the url [chrome://extensions/](chrome://extensions/)
 * load unpacked extension where you just cloned（note: open your dev mode）
+* to use "Open in Terminal" btn you must install locally and run install.sh before hand.
 
 ## screenshot
 ![screenshot-1](./screenshot-1.png)
