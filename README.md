@@ -1,14 +1,14 @@
 # OpenAnyconnect Cookie Tray (Uni Lincoln)
 ![logo](./icons/openconnect.png)
 
-This simple extension is designed to work with the University of Lincoln's AnyConnect Portal of a Cisco VPN installation. All it does it to extract the VPN cookie from it to generate a command line for [openconnect](https://www.infradead.org/openconnect/) to be used on Linux or OSX. It's open source and available from https://github.com/marc-hanheide/openconnect_cookie_extractor to be customised also for other portals.
+This simple extension is designed to work with the University of Lincoln's AnyConnect Portal of a Cisco VPN installation. All it does is extracting the VPN cookie from the portal to generate a command line for [openconnect](https://www.infradead.org/openconnect/) to be used on Linux or OSX. It's open source and available from https://github.com/marc-hanheide/openconnect_cookie_extractor to be customised also for other portals.
 
 ## Usage
 
 Simple! 
 
 1. Install the extension 
-    * in webstore soon (hopefully)
+    * in webstore soon (maybe)
     * for now download `.crx` file from [releases](https://github.com/marc-hanheide/openconnect_cookie_extractor/releases), enable developer mode in chrome://extensions/ and drag the downloaded `.crx` file into the window to install. If that fails, use [setup for development](#setup-for-development) for now.
 1. navigate to https://remote.lincoln.ac.uk 
 1. log in (with MFA if needed)
